@@ -10,30 +10,30 @@
 </head>
 <body>
     <div class="container">
-        <form action="">
+        <form id="myForm">
             <fieldset>
                 <legend>Place in your book:</legend>
-                <p>
-                    <input type="text" name="author" id="author" placeholder="author:">
-                </p>
-                <p>
-                    <input type="text" name="title"  id="title" placeholder="title:"> 
-                </p>
-                <p>
-                    <input type="number" name="pages" id="pages" placeholder="number of pages:">
-                </p>
-                <p>
+                <div class="small-container">
+                    <input type="text" name="author" class="input" id="author" placeholder="author:">
+                </div>
+                <div class="small-container">
+                    <input type="text" name="title" class="input" id="title" placeholder="title:"> 
+                </div>
+                <div class="small-container">
+                    <input type="number" name="pages" id="pages" class="input" placeholder="number of pages:">
+                </div>
+                <div class="small-container">
                     <label for="read">Have you read this book ?</label>
-                    <input type="checkbox" name="read" id="read">
-                </p>
-                <p>
-                    <button type="submit">Submit</button>
-                </p>
+                    <input type="checkbox" name="read" class="input" id="read">
+                </div>
+                <input type="submit" value="Submit">
             </fieldset>
         </form>
     </div>
     <div class="current-books">
-        
+        <div class="book basic">
+            <h1>Basic book</h1>
+        </div>
     </div>
 </body>
 </html>
