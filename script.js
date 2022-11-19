@@ -1,3 +1,5 @@
+let myLibrary = [];
+
 class Book {
     constructor(author, pages, title, read) {
         this.author = author,
@@ -7,27 +9,34 @@ class Book {
     }
 };
 
-const lotr = new Book("JRRT", "312321", "TLOTR", "Yes");
-const currentBooks = document.querySelector(".current-books");
-const btn = document.querySelector(".button");
-
-function makeDiv(e) {
-    e.preventDefault();
-    let cell = document.createElement("div");
-    currentBooks.appendChild(cell).className = "book";
+function addBookToLibrary(author, pages, title, read) {
+    let book = new Book(author, pages, title, read);
+    myLibrary.push(book)
 }
 
-function getData(form) {
-    let formData = new FormData(form);
+function displayBooksOnPage() {
+    const books = document.querySelector(".books");
 
-    // iterate trough enteries
-    for (let pair of formData.entries()) {
-        console.log(pair[0] + ":" + pair[1]);
-    }
+    myLibrary.forEach(myLibrary => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        books.appendChild(card);
+        for (let key in myLibrary) {
+            console.log(`${key}: ${myLibrary[key]}`);
+            const para = document.createElement("p");
+            para.textContent = (`${key}: ${myLibrary[key]}`);
+            card.appendChild(para)
+        }
+    })
 }
 
-document.getElementById("myForm").addEventListener("submit",
-function(e) {
-    e.preventDefault();
-    getData(e.target);
-});
+addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
+addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
+addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
+addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
+addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
+addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
+
+console.log("end of contents", myLibrary);
+
+displayBooksOnPage();
