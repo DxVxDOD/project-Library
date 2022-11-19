@@ -30,9 +30,8 @@ function displayBooksOnPage() {
     })
 }
 
-addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
-addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
-addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
+
+
 addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
 addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
 addBookToLibrary("mark mark", "86530", "uhqwjkn", "YES");
