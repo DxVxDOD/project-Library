@@ -16,8 +16,10 @@ document.getElementById("myForm").addEventListener("submit",
 function(e) {
     e.preventDefault();
     getData(e.target);
+    bookReadButton();
     deleteButton();
 });
+
 
 function deleteButton() {
     const cards = document.querySelectorAll(`.card`);
@@ -26,13 +28,21 @@ function deleteButton() {
     buttonCancel.innerText = `x`
     cards.forEach(card => card.appendChild(buttonCancel));
     cancels = document.querySelectorAll(`.cancel`);
-    cancels.forEach(cancel => cancel.addEventListener(`click`, deleteCard));
+    cancels.forEach(cancel => cancel.addEventListener(`click`, 
+    function() {
+        this.closest(`div`).remove()
+    }));
 }
 
-function deleteCard() {
-    this.closest(`div`).remove();
-}
-
-function bookRead() {
-    
+function bookReadButton() {
+    const cards = document.querySelectorAll(`.card`);
+    const label = document.createElement(`label`);
+    label.classList.add(`switch`);
+    const input = document.createElement(`input`);
+    input.type = `checkbox`;
+    label.appendChild(input);
+    const span = document.createElement(`span`);
+    span.classList.add(`slider`, `round`);
+    label.appendChild(span);
+    cards.forEach(card => card.appendChild(label));
 }
