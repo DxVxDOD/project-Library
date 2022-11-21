@@ -1,24 +1,115 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
 body {
-    background-color: beige;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.form-heading {
+    background-color: black;
+    font-weight: bolder;
+    color: beige;
+    padding: 2em;
+}
+
+.footer {
+    background-color: black;
+    color: beige;
+    padding: 1em;
+}
+
+.books-read > h1 {
+    font-size: 3em;
+    font-weight: bolder;
+}
+
+.button-container {
+    display: flex;
     justify-content: center;
 }
 
-.books {
-    display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-    grid-auto-rows: minmax(150px, 1fr);
-}
-
-.card {
-    background-color: lightslategray;
-    border-radius: 10px;
-    border: solid black;
+.open-button {
+    background-color: lightgray;
+    border: none;
+    border-radius: 15px;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-weight: bold;
 }
