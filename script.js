@@ -16,4 +16,23 @@ document.getElementById("myForm").addEventListener("submit",
 function(e) {
     e.preventDefault();
     getData(e.target);
+    deleteButton();
 });
+
+function deleteButton() {
+    const cards = document.querySelectorAll(`.card`);
+    const buttonCancel = document.createElement(`button`);
+    buttonCancel.classList.add(`cancel`)
+    buttonCancel.innerText = `x`
+    cards.forEach(card => card.appendChild(buttonCancel));
+    cancels = document.querySelectorAll(`.cancel`);
+    cancels.forEach(cancel => cancel.addEventListener(`click`, deleteCard));
+}
+
+function deleteCard() {
+    this.closest(`div`).remove();
+}
+
+function bookRead() {
+    
+}

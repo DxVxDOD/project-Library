@@ -77,7 +77,8 @@ select {
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    background-color: #F2F6F9;
+    min-height: 100vh; 
 }
 
 .form-heading {
@@ -91,25 +92,105 @@ select {
     background-color: black;
     color: beige;
     padding: 1em;
-}
-
-.books-read > h1 {
-    font-size: 3em;
-    font-weight: bolder;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    text-align: center;
 }
 
 .button-container {
     display: flex;
     justify-content: center;
+    margin: 20px;
 }
 
-.open-button {
-    background-color: lightgray;
+.btn, .cancel {
+    background-color: #c0c5ce;
     border: none;
-    border-radius: 15px;
-    padding-left: 3em;
-    padding-right: 3em;
-    padding-top: 1em;
-    padding-bottom: 1em;
     font-weight: bold;
+    position: relative;
+    border-radius: 10px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.btn::before, .cancel::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #343d46;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+
+.btn:hover::before, .cancel:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);}
+
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 0.2fr));
+    grid-auto-rows: minmax(10em, 0.5fr);
+    gap: 1em;
+    flex: 1 1 auto;
+    margin: 20px;
+}
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+.card {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    background-color: #c0c5ce;
+    border-radius: 25px;
+    transform: translatey(0px);
+	animation: float 1.5s ease-in-out;
+    color: #343d46;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: bold;
+}
+
+.form-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 25px;
+    gap: 30px;
+}
+
+input {
+    border: solid #a7adba;
+}
+
+.cancel {
+    border: none;
+    padding: 10px;
+    padding-bottom: 2px;
+    margin-bottom: 10px;
+    background-color: #c0c5ce;
+    bottom: 0;
 }
